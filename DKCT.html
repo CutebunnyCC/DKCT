@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Four People Tabs</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    .tabs {
+      display: flex;
+      background-color: #f4f4f4;
+      border-bottom: 2px solid #ccc;
+    }
+    .tab {
+      padding: 10px 20px;
+      cursor: pointer;
+      text-align: center;
+      flex: 1;
+      border: none;
+      outline: none;
+      background-color: #f4f4f4;
+      font-size: 16px;
+    }
+    .tab:hover {
+      background-color: #e0e0e0;
+    }
+    .tab.active {
+      background-color: #fff;
+      border-bottom: 2px solid #fff;
+      font-weight: bold;
+    }
+    .content {
+      display: none;
+      padding: 20px;
+    }
+    .content.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="tabs">
+    <button class="tab active" data-tab="CutebunnyCC">CutebunnyCC</button>
+    <button class="tab" data-tab="FUNGUSPUNGUS">FUNGUSPUNGUS</button>
+    <button class="tab" data-tab="Kaya Da Monster">Kaya Da Monster </button>
+    <button class="tab" data-tab="Daphne Parakeet">Daphne Parakeet</button>
+  </div>
+
+  <div class="content active" id="CutebunnyCC">
+    <h2>CutebunnyCC</h2>
+    <p>Details about Person 1 go here.</p>
+  </div>
+  <div class="content" id="FUNGUSPUNGUS">
+    <h2>FUNGUSPUNGUS</h2>
+    <p>Details about Person 2 go here.</p>
+  </div>
+  <div class="content" id="Kaya Da Monster">
+    <h2>Kaya Da Monster</h2>
+    <p>Details about Person 3 go here.</p>
+  </div>
+  <div class="content" id="Daphne Parakeet">
+    <h2>Daphne the Parakeet</h2>
+    <p>Details about Person 4 go here.</p>
+  </div>
+
+  <script>
+    const tabs = document.querySelectorAll('.tab');
+    const contents = document.querySelectorAll('.content');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const target = document.getElementById(tab.dataset.tab);
+
+        tabs.forEach(t => t.classList.remove('active'));
+        contents.forEach(c => c.classList.remove('active'));
+
+        tab.classList.add('active');
+        target.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
+
